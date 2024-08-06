@@ -1,9 +1,18 @@
 <div>
-
-    <div>
-
-        <app-main-carousel></app-main-carousel>
-
+    <div class="relative h-screen bg-center" style="background-image: url('/assets/img/hero/hero1.webp');">
+        <div class="absolute inset-0 flex flex-col items-center justify-center space-y-4">
+            <h1 class="text-4xl font-bold text-white shadow-lg">Explorez le Monde avec NomadOdyssey</h1>
+            <a href="#products" class="bg-green-500 text-white font-bold py-2 px-4 rounded-full hover:bg-green-600 shadow-md">
+                Découvrez nos produits
+            </a>
+        </div>
     </div>
 
+    <div id="products">
+        <app-product-slider title="Camping" [products]="tents"></app-product-slider>
+        <app-product-slider title="Sacs de couchage" [products]="sleepingBags"></app-product-slider>
+        <app-product-slider title="Matelas et Tapis de sol" [products]="mattressesAndGroundsheets"></app-product-slider>
+        <app-product-slider title="Réchauds portables et ustensiles de cuisine de camping" [products]="portableStovesAndCampingCookware"></app-product-slider>
+        <app-product-slider title="Lampes de poche et lanternes" [products]="flashlightsAndLanterns"></app-product-slider>
+    </div>
 </div>
