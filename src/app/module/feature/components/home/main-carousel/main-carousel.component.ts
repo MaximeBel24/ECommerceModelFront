@@ -1,13 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { homeCarouselData } from '../../../data/mainCarousel';
+import { homeCarouselData } from '../../../../../../data/mainCarousel';
 
 @Component({
   selector: 'app-main-carousel',
   templateUrl: './main-carousel.component.html',
-  styleUrls: ['./main-carousel.component.scss']
+  styleUrls: ['./main-carousel.component.scss'],
 })
 export class MainCarouselComponent implements OnInit {
-
   carouselData: any = homeCarouselData;
   currentSlide = 0;
   interval: any;

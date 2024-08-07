@@ -1,4 +1,4 @@
-<div class="fixed top-0 z-50 right-0 left-0 bg-[#252e2f] text-gray-200">
+<div class="fixed top-0 z-50 right-0 left-0 bg-[#252e2f] text-gray-200"  (mouseleave)="closeNavbarContent()">
 
     <div class="px-5 lg:px-20 h-16 flex items-center justify-between">
 
@@ -13,8 +13,9 @@
                         NomadOdyssey
                     </a>
                     <div>
-                        <button class="open-button" (click)="openNavbarContent('products')" mat-button>Produits</button>
+                        <button class="open-button" (mouseenter)="openNavbarContent('products')" mat-button>Produits</button>
                     </div>
+                    
                 </div>
             </div>
         </div>

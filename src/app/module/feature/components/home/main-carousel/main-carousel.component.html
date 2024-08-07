@@ -2,7 +2,7 @@
     <div class="carousel-container overflow-x-hidden">
         <div class="carousel flex transition-transform duration-500" [style.transform]="'translateX(-' + (currentSlide * 100) + '%)'">
             <ng-container *ngFor="let item of carouselData; let i = index">
-                <a [routerLink]="item.path" class="carousel-item block flex-shrink-0 w-full">
+                <a class="carousel-item block flex-shrink-0 w-full">
                     <img [src]="item.image" alt="carousel image" class="w-full h-96">
                 </a>
             </ng-container>

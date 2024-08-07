@@ -1,0 +1,28 @@
+export const flashlightsAndLanterns =[
+    {
+        "imageUrl" : "https://www.bfgcdn.com/600_600_90/546-0138-0111/lupine-betty-tl2-pro-lampe-de-poche.jpg",
+        "brand" : "LUPINE",
+        "title" : "Betty TL2 Pro"
+    },
+    {
+        "imageUrl" : "https://www.bfgcdn.com/600_600_90/546-0138-0111/lupine-betty-tl2-pro-lampe-de-poche.jpg",
+        "brand" : "LUPINE",
+        "title" : "Betty TL2 Pro"
+    },
+    {
+        "imageUrl" : "https://www.bfgcdn.com/600_600_90/546-0138-0111/lupine-betty-tl2-pro-lampe-de-poche.jpg",
+        "brand" : "LUPINE",
+        "title" : "Betty TL2 Pro"
+    },
+    {
+        "imageUrl" : "https://www.bfgcdn.com/600_600_90/546-0138-0111/lupine-betty-tl2-pro-lampe-de-poche.jpg",
+        "brand" : "LUPINE",
+        "title" : "Betty TL2 Pro"
+    },
+    {
+        "imageUrl" : "https://www.bfgcdn.com/600_600_90/546-0138-0111/lupine-betty-tl2-pro-lampe-de-poche.jpg",
+        "brand" : "LUPINE",
+        "title" : "Betty TL2 Pro"
+    },
+
+]

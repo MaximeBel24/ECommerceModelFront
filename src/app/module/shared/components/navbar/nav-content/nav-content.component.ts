@@ -13,8 +13,7 @@ export class NavContentComponent implements OnInit{
 
   ngOnInit(): void {
     this.category = navigation;
-
-    console.log("selected section", this.selectedSection)
+    console.log(this.category)
   }
 
 }
