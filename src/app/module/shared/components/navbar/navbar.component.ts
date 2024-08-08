@@ -1,4 +1,5 @@
 import { Component, HostListener } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -10,6 +11,8 @@ export class NavbarComponent {
   currentSection: string | null = null;
   isNavbarContentOpen: boolean = false;
 
+  constructor(private router : Router){}
+
   openNavbarContent(section: string) {
     this.isNavbarContentOpen = true;
     this.currentSection = section;
@@ -20,7 +23,7 @@ export class NavbarComponent {
   }
 
   navigateTo(path: string) {
-    // Logic for navigation
+    this.router.navigate([path])
   }
 
   @HostListener('document:mouseenter', ['$event'])
@@ -45,4 +48,6 @@ export class NavbarComponent {
       this.closeNavbarContent();
     }
   }
+
+  
 }
