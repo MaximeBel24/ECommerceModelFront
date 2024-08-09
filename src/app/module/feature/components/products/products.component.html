@@ -1,6 +1,6 @@
-<div class="">
+<div class="flex flex-col items-center">
 
-    <main class="px-4 sm:px-6 lg:px-40 pb-10">
+    <main class="px-4 sm:px-6 max-w-7xl pb-10">
 
         <div class="flex items-baseline justify-between border-gray-200 pb-6 pt-24">
 
@@ -50,7 +50,9 @@
                                                 <mat-checkbox 
                                                 id="'filter-' + option.value"
                                                 [name]="item.id"
-                                                [value]="option.value">
+                                                [value]="option.value"
+                                                (click)="handleMultipleSelectFilter(option.value, item.id)"
+                                                >
                                                     <span class="text-sm text-gray-500">
                                                         {{ option.label }}
                                                     </span>
@@ -80,7 +82,9 @@
                                                 <mat-radio-button 
                                                 id="'filter-' + option.value"
                                                 [name]="item.id"
-                                                [value]="option.value">
+                                                [value]="option.value"
+                                                (click)="handleSingleSelectFilter(option.value, item.id)"
+                                                >
                                                     <span class="text-sm text-gray-500">
                                                         {{ option.label }}
                                                     </span>
@@ -98,7 +102,16 @@
                     </form>
                 </div>
 
-                <div>
+                <div class="lg:col-span-3">
+                    <div class="flex flex-wrap justify-evenly">
+
+                        <ng-container *ngFor="let item of menPants">
+
+                            <app-product-card [product]="item" />
+
+                        </ng-container>
+
+                    </div>
                     Produits
                 </div>
 

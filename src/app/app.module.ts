@@ -8,6 +8,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
 import { FeatureModule } from './module/feature/feature.module';
 import { SharedModule } from './module/shared/shared.module';
+import { AdminModule } from './module/admin/admin.module';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { SharedModule } from './module/shared/shared.module';
     BrowserModule,
     AppRoutingModule,
     FeatureModule,
-    SharedModule
+    SharedModule,
+    AdminModule
   ],
   providers: [
     provideClientHydration(),
