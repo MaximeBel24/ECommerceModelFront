@@ -1,0 +1,57 @@
+<div class="container">
+    <form [formGroup]="registerForm" (ngSubmit)="submitForm()">
+        <h1>Shop with Max</h1>
+
+        <div>
+            <mat-form-field class="w-full">
+
+                <mat-label>First Name</mat-label>
+                <input matInput formControlName="firstname" required firstname>
+
+                <mat-error *ngIf="registerForm.controls['firstname'].hasError('required')">Firstname Is required</mat-error>
+
+            </mat-form-field>
+
+            <mat-form-field class="w-full">
+
+                <mat-label>Last Name</mat-label>
+                <input matInput formControlName="lastname" required lastname>
+
+                <mat-error *ngIf="registerForm.controls['lastname'].hasError('required')">Lastname Is required</mat-error>
+
+            </mat-form-field>
+
+            <mat-form-field class="w-full">
+
+                <mat-label>Email</mat-label>
+                <input matInput formControlName="email" required email>
+
+                <mat-error *ngIf="registerForm.controls['email'].hasError('required')">Email Is required</mat-error>
+                <mat-error *ngIf="registerForm.controls['email'].hasError('email')">Please enter a valid email Address</mat-error>
+
+            </mat-form-field>
+
+            <mat-form-field class="w-full">
+
+                <mat-label>Password</mat-label>
+                <input matInput formControlName="password" required password>
+
+                <mat-error *ngIf="registerForm.controls['password'].hasError('required')">Password Is required</mat-error>
+                <mat-error *ngIf="registerForm.controls['password'].hasError('minlength')">Password should be at least 8 characters long</mat-error>
+
+            </mat-form-field>
+
+            <div>
+                <button mat-raised-button class="w-full" style="padding: 1.7rem;" color="accent">
+                    REGISTER
+                </button>
+            </div>
+            <div class="pt-5">
+                <span>if you have account ?</span>
+                <button mat-button (click)="changeTemplate()" color="accent">
+                    LOGIN
+                </button>
+            </div>
+        </div>
+    </form>
+</div>

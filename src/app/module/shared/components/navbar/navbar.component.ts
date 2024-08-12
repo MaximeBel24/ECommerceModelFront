@@ -1,17 +1,28 @@
-import { Component, HostListener } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { MatDialog } from '@angular/material/dialog';
+import { AuthComponent } from '../../../auth/components/auth.component';
+import { UserService } from '../../../../state/user/user.service';
+import { select, Store } from '@ngrx/store';
+import { AppState } from '../../../../models/appState';
 
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.scss']
 })
-export class NavbarComponent {
+export class NavbarComponent implements OnInit{
 
-  currentSection: string | null = null;
-  isNavbarContentOpen: boolean = false;
+  currentSection: any;
+  isNavbarContentOpen: any;
+  userProfile:any;
 
-  constructor(private router : Router){}
+  constructor(
+    private router : Router, 
+    private dialog: MatDialog, 
+    private userService : UserService, 
+    private store: Store<AppState>
+  ){}
 
   openNavbarContent(section: string) {
     this.isNavbarContentOpen = true;
@@ -24,6 +35,17 @@ export class NavbarComponent {
 
   navigateTo(path: string) {
     this.router.navigate([path])
+  }
+
+  ngOnInit(): void {
+    if(localStorage.getItem("jwt")) this.userService.getUserProfile()
+
+    this.store.pipe(select((store)=>store.user)).subscribe((user)=>{
+      this.userProfile = user.userProfile
+      if(user.userProfile){
+        this.dialog.closeAll()
+      }
+    })
   }
 
   @HostListener('document:mouseenter', ['$event'])
@@ -49,5 +71,12 @@ export class NavbarComponent {
     }
   }
 
+  handleOpenLoginModal=() =>{ 
+    console.log("handle open login module");
+    this.dialog.open(AuthComponent,{
+      width: "500px",
+      disableClose:false
+    })
+  }
   
 }

@@ -3,12 +3,14 @@ import { BrowserModule, provideClientHydration } from '@angular/platform-browser
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
-import { MatButtonModule } from '@angular/material/button';
-import { MatIconModule } from '@angular/material/icon';
-import { MatMenuModule } from '@angular/material/menu';
 import { FeatureModule } from './module/feature/feature.module';
 import { SharedModule } from './module/shared/shared.module';
 import { AdminModule } from './module/admin/admin.module';
+import { StoreModule } from '@ngrx/store';
+import { AuthModule } from './module/auth/auth.module';
+import { authReducer } from './state/auth/auth.reducer';
+import { userReducer } from './state/user/user.reducer';
+import { HttpClientModule, provideHttpClient } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -19,11 +21,14 @@ import { AdminModule } from './module/admin/admin.module';
     AppRoutingModule,
     FeatureModule,
     SharedModule,
-    AdminModule
+    AdminModule,
+    AuthModule,
+    StoreModule.forRoot({auth: authReducer, user: userReducer}),
   ],
   providers: [
     provideClientHydration(),
-    provideAnimationsAsync()
+    provideAnimationsAsync(),
+    provideHttpClient()
   ],
   bootstrap: [AppComponent]
 })
