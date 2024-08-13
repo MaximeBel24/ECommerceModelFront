@@ -11,6 +11,7 @@ import { AuthModule } from './module/auth/auth.module';
 import { authReducer } from './state/auth/auth.reducer';
 import { userReducer } from './state/user/user.reducer';
 import { HttpClientModule, provideHttpClient } from '@angular/common/http';
+import { productReducer } from './state/product/product.reducer';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,11 @@ import { HttpClientModule, provideHttpClient } from '@angular/common/http';
     SharedModule,
     AdminModule,
     AuthModule,
-    StoreModule.forRoot({auth: authReducer, user: userReducer}),
+    StoreModule.forRoot({
+      auth: authReducer, 
+      user: userReducer,
+      product: productReducer
+    }),
   ],
   providers: [
     provideClientHydration(),

@@ -15,9 +15,9 @@ export class SignupComponent {
   constructor(private formBuilder : FormBuilder, private store : Store, private authService : AuthService){}
 
   registerForm : FormGroup = this.formBuilder.group({
-    firstname:["",[Validators.required]],
-    lastname:["",[Validators.required]],
-    email: ['',[Validators.required, Validators.email]],
+    firstName:["",[Validators.required]],
+    lastName:["",[Validators.required]],
+    email: ["",[Validators.required, Validators.email]],
     password: ["", [Validators.required, Validators.minLength(8)]]
   })
 
@@ -27,5 +27,6 @@ export class SignupComponent {
       this.authService.register(this.registerForm.value);
     }
   }
+
 
 }

@@ -10,6 +10,8 @@ import { PaymentSuccessComponent } from './module/feature/components/payment-suc
 import { OrderComponent } from './module/feature/components/order/order.component';
 import { OrderDetailsComponent } from './module/feature/components/order-details/order-details.component';
 import { AdminRoutingModule } from './module/admin/admin-routing.module';
+import { SigninComponent } from './module/auth/components/signin/signin.component';
+import { SignupComponent } from './module/auth/components/signup/signup.component';
 
 const routes: Routes = [
   {path:"", component: HomeComponent},
@@ -24,6 +26,9 @@ const routes: Routes = [
   {path:"order/:id", component: OrderDetailsComponent},
 
   {path:"admin", loadChildren:()=>import("./module/admin/admin-routing.module").then(m=>AdminRoutingModule)},
+
+  {path: "login", component: SigninComponent},
+  {path: "register", component: SignupComponent},
 ];
 
 @NgModule({

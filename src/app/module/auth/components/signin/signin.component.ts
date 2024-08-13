@@ -15,13 +15,13 @@ export class SigninComponent {
   constructor(private formBuilder : FormBuilder, private store : Store, private authService: AuthService){}
 
   loginForm : FormGroup = this.formBuilder.group({
-    email: ['',[Validators.required, Validators.email]],
+    email: ["",[Validators.required, Validators.email]],
     password: ["", [Validators.required, Validators.minLength(8)]]
   })
 
   submitForm(): void{
     if(this.loginForm.valid){
-      this.authService.login(this.loginForm.valid);
+      this.authService.login(this.loginForm.value);
       console.log("login req data ", this.loginForm.value);
     }
   }

@@ -45,6 +45,7 @@ export class NavbarComponent implements OnInit{
       if(user.userProfile){
         this.dialog.closeAll()
       }
+      console.log("user connected", user);
     })
   }
 
@@ -77,6 +78,10 @@ export class NavbarComponent implements OnInit{
       width: "500px",
       disableClose:false
     })
+  }
+
+  handleLogout=()=>{
+    this.userService.logout()
   }
   
 }

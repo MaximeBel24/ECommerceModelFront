@@ -1,9 +1,9 @@
-import { Injectable } from "@angular/core";
+import { Inject, Injectable, InjectionToken } from "@angular/core";
 import { BASE_API_URL } from "../../config/api";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Store } from "@ngrx/store";
 import { catchError, map, of } from "rxjs";
-import { getUserProfileFailure, getUserProfileSuccess } from "./user.action";
+import { getUserProfileFailure, getUserProfileSuccess, logoutSuccess } from "./user.action";
 
 @Injectable({
     providedIn: 'root',
@@ -17,7 +17,6 @@ export class UserService{
         this.headers = new HttpHeaders().set("Authorization", `Bearer ${localStorage.getItem("jwt")}`)
 
     }
-
 
     getUserProfile(){
         return this.http.get(`${this.apiUrl}/profile`, {headers:this.headers}).pipe(
@@ -35,6 +34,11 @@ export class UserService{
                 )
             })
         ).subscribe((action) => this.store.dispatch(action))
+    }
+
+    logout(){
+        localStorage.removeItem("jwt")
+        this.store.dispatch(logoutSuccess())
     }
 
 }

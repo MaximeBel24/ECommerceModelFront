@@ -6,18 +6,18 @@
             <mat-form-field class="w-full">
 
                 <mat-label>First Name</mat-label>
-                <input matInput formControlName="firstname" required firstname>
+                <input matInput formControlName="firstName" required firstName>
 
-                <mat-error *ngIf="registerForm.controls['firstname'].hasError('required')">Firstname Is required</mat-error>
+                <mat-error *ngIf="registerForm.controls['firstName'].hasError('required')">First Name is Required</mat-error>
 
             </mat-form-field>
 
             <mat-form-field class="w-full">
 
                 <mat-label>Last Name</mat-label>
-                <input matInput formControlName="lastname" required lastname>
+                <input matInput formControlName="lastName" required lastName>
 
-                <mat-error *ngIf="registerForm.controls['lastname'].hasError('required')">Lastname Is required</mat-error>
+                <mat-error *ngIf="registerForm.controls['lastName'].hasError('required')">Last Name is Required</mat-error>
 
             </mat-form-field>
 

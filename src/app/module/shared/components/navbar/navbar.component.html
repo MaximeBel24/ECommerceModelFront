@@ -28,14 +28,16 @@
                 <mat-icon>shopping_cart</mat-icon>
             </button>
 
-            <button *ngIf="true" mat-raised-button type="" color="accent" (click)="handleOpenLoginModal()" >
+            <button *ngIf="!userProfile" mat-raised-button color="accent" (click)="handleOpenLoginModal()" >
                 LOGIN
             </button>
 
-            <div *ngIf="false" class="relative ml-3 flex items-center">
+            <div *ngIf="userProfile" class="relative ml-3 flex items-center">
 
                 <div class="flex items-center space-x-5">
-                    <span class="font-bold text-lg">Ashok</span>
+                    <span class="font-bold text-lg">
+                        {{userProfile.firstName}}
+                    </span>
                     <button mat-button [matMenuTriggerFor]="userMenu">
                         <img src="https://cdn.pixabay.com/photo/2014/04/02/10/25/man-303792_1280.png" class="h-5" alt="">
                     </button>
@@ -45,7 +47,7 @@
                     <ng-template matMenuContent>
                       <button mat-menu-item>Profil</button>
                       <button (click)="navigateTo('account/orders')" mat-menu-item>Commande</button>
-                      <button mat-menu-item>Déconnexion</button>
+                      <button mat-menu-item (click)="handleLogout()">Déconnexion</button>
                     </ng-template>
                   </mat-menu>
 
