@@ -10,8 +10,10 @@ import { StoreModule } from '@ngrx/store';
 import { AuthModule } from './module/auth/auth.module';
 import { authReducer } from './state/auth/auth.reducer';
 import { userReducer } from './state/user/user.reducer';
-import { HttpClientModule, provideHttpClient } from '@angular/common/http';
+import { provideHttpClient } from '@angular/common/http';
 import { productReducer } from './state/product/product.reducer';
+import { cartReducer } from './state/cart/cart.reducer';
+import { orderReducer } from './state/order/order.reducer';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,9 @@ import { productReducer } from './state/product/product.reducer';
     StoreModule.forRoot({
       auth: authReducer, 
       user: userReducer,
-      product: productReducer
+      product: productReducer,
+      cart: cartReducer,
+      order: orderReducer
     }),
   ],
   providers: [

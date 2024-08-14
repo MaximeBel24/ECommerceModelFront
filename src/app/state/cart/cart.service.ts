@@ -1,13 +1,10 @@
-import { HttpClient, HttpHeaders, HttpParams } from "@angular/common/http";
+import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { BASE_API_URL } from "../../config/api";
 import { Store } from "@ngrx/store";
-import { Router } from "express";
-import { ActivatedRoute } from "@angular/router";
-import { findProductByCategoryFailure, findProductByCategorySuccess, findProductByIdFailure, findProductByIdSuccess } from "./product.action";
+import { ActivatedRoute, Router } from "@angular/router";
 import { catchError, map, of } from "rxjs";
-import { error } from "console";
-import { addItemToCartFailure, addItemToCartSuccess, getCartFailure, getCartSuccess, removeCartItemFailure, removeCartItemSuccess, removeCartSuccess } from "./cart.action";
+import { addItemToCartFailure, addItemToCartSuccess, getCartFailure, getCartSuccess, removeCartItemFailure, removeCartItemSuccess, updateCartItemSuccess } from "./cart.action";
 
 @Injectable({
     providedIn:'root',
@@ -103,8 +100,8 @@ export class CartService{
 
         return this.http.put(url,reqData.data , { headers }).pipe(
             map((data:any)=>{
-                console.log("removed item : ", data);
-                return removeCartSuccess({cartItemId})
+                console.log("updated item : ", data);
+                return updateCartItemSuccess({payload:data})
             }),
             catchError((error: any) => {
                return of(

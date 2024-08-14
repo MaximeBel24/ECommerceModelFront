@@ -24,8 +24,8 @@ export const getCartSuccess = createAction(
     props<{payload:any}>()
 )
 
-export const getCartItemFailure = createAction(
-    '[Cart] Get Cart Item Failure',
+export const getCartFailure = createAction(
+    '[Cart] Get Cart Failure',
     props<{error:any}>()
 )
 
@@ -36,7 +36,7 @@ export const removeCartItemRequest = createAction(
 
 export const removeCartItemSuccess = createAction(
     '[Cart] Remove Cart Item Success',
-    props<{payload:any}>()
+    props<{cartItemId:any}>()
 )
 
 export const removeCartItemFailure = createAction(
